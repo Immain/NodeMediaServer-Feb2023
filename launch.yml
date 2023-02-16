@@ -225,13 +225,6 @@
      project_src: ~/ansible/compose_files/proxy-manager
      files:
      - compose.yml
-     
-  - name: Install UFW firewall
-    apt: name=ufw update_cache=yes state=latest  
-  
-  - name: Enable UFW
-    ufw:
-      state: enabled
 
   - name: Open Ports
     ufw:
