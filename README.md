@@ -66,3 +66,8 @@ To login:
 - pass: changeme
 
 ### Change the default password and set your desired email address.
+
+# References
+- https://nginxproxymanager.com/
+- https://github.com/illuspas/Node-Media-Server
+- https://www.npmjs.com/package/react-player
