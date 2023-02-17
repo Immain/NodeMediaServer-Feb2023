@@ -24,6 +24,9 @@ sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 ```
+sudo ufw allow 80
+```
+```
 sudo ufw allow 443
 ```
 ```
