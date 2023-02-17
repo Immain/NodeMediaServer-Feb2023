@@ -52,4 +52,13 @@ Purchase a domain, or if you already own a domain, add a sub domain such as vide
 ```
 https://video.your-domain.com:8443/live/stream/index.m3u8
 ```
+# Accessing NGINX Proxy Manager
+To access the NGINX Proxy Manager, go to:
+```
+http://your-ip:81
+```
+To login:
+- username: admin@example.com
+- pass: changeme
 
+### Change the default password and set your desired email address.
