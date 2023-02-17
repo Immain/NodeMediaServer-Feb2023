@@ -9,7 +9,7 @@ Script was made for use on Ubuntu 20.04 and up
 sudo apt install ansible && cd ansible
 ```
 ```
-sudo nano video.yml
+sudo nano launch.yml
 ```
 Paste the contents and save.
 
