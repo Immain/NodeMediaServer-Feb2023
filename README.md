@@ -17,3 +17,11 @@ sudo ufw allow 8443
 ```
 sudo certbot certonly --standalone -d your_domain
 ```
+# Add the Certificate to your App.js File
+```
+  https: {
+    port: 8443,
+    key: '/etc/letsencrypt/live/your-domain/privkey.pem',
+    cert: '/etc/letsencrypt/live/your-domain/fullchain.pem',
+  },
+```
