@@ -8,56 +8,10 @@
 # Date Created: 2/15/2023
 # Version: 1.0.0
 # Title: Node Media Server
-# Description: Linode Cloud Based Media Server to push stream content or live video feeds
+# Description: Node Media Server to push stream content or live video feeds
 
 ---
-- name: Create Linode Instance
-  hosts: localhost
-  vars_files:
-    - ./group_vars/vars.yml
-  tasks:
-  - name: Create a Linode instance
-    linode_v4:
-      access_token: "{{ access_token }}"
-      authorized_keys: "{{ ssh_pub_key_file }}"
-      label: test-linode
-      type: g6-standard-2
-      private_ip: true
-      region: us-west
-      image: linode/Debian11
-      root_pass: "{{ password }}"
-      state: present
-    register: test_linode
-
-  - name: Get Linode Info
-    debug:
-      msg: "ID is {{ test_linode.instance.id }} IP is {{ test_linode.instance.ipv4 }}"
-      
-  - name: Add Instance ID To vars.yml
-    lineinfile:
-      dest: /home/ubuntu/development/group_vars/vars.yml
-      line: "instance_id: {{ test_linode.instance.id }}"
-      state: present
-      create: yes
-
-  - name: Add New Linode to Host Group
-    add_host:
-      hostname: "{{ test_linode.instance.ipv4[0] }}"
-      groups: Launched
-      ansible_user: root
-
-  - name: Wait for SSH to Come Up (this may take awhile, completion time varies)
-    wait_for:
-      host: "{{ test_linode.instance.ipv4[0] }}"
-      port: 22
-      search_regex: OpenSSH
-      timeout: 180
-
-- hosts: Launched
-  remote_user: root
-  vars_files:
-    - ./group_vars/vars-remote.yml
-    - ./group_vars/vars.yml
+- hosts: localhost
   tasks:
   - name: Upgrade all apt packages
     apt: upgrade=dist force_apt_get=yes
@@ -107,6 +61,11 @@
             port: 8000,
             mediaroot: '/home/server/media',
             allow_origin: '*'
+          },
+          https: {
+            port: 8443,
+            key: '/etc/letsencrypt/live/your-domain/privkey.pem',
+            cert: '/etc/letsencrypt/live/your-domain/fullchain.pem'
           },
           trans: {
             ffmpeg: '/usr/bin/ffmpeg',
@@ -235,6 +194,8 @@
     loop:
       - '8080'
       - '81'
+      - '8443'
+      - '22'
       - '443'
       - '1945'
       - '8000'
