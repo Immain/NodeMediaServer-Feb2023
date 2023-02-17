@@ -12,6 +12,9 @@ sudo apt install ansible && cd ansible
 sudo nano launch.yml
 ```
 Paste the contents and save.
+```
+sudo ansible-playbook launch.yml
+```
 
 # Assign an SSL Cert to the Node Media Server
 ```
