@@ -65,6 +65,14 @@ To login:
 - username: admin@example.com
 - pass: changeme
 
+On line #175, be sure to change the enviroment information, DO NOT KEEP IT DEFAULT:
+```
+MYSQL_ROOT_PASSWORD: 'changeme'
+MYSQL_DATABASE: 'changeme'
+MYSQL_USER: 'changeme'
+MYSQL_PASSWORD: 'changeme'
+```
+
 ### Change the default password and set your desired email address.
 
 # References
