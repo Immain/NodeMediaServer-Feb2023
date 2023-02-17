@@ -25,3 +25,7 @@ sudo certbot certonly --standalone -d your_domain
     cert: '/etc/letsencrypt/live/your-domain/fullchain.pem',
   },
 ```
+# Launch Node Media Server
+```
+sudo node app.js
+```
