@@ -32,3 +32,11 @@ sudo certbot certonly --standalone -d your_domain
 ```
 sudo node app.js
 ```
+# Domain and Adding to a Web Based Media Player
+Purchase a domain, or if you already own a domain, add a sub domain such as video.your-domain.com or vice versa. Set the Sub Domain as a CNAME or A record and assign it the Public IP address of your local or cloud machine. 
+<br>
+From there, use a compatible player on your side that uses either HLS or DASH and then set the source as:
+```
+https://video.your-domain.com/live/stream/index.m3u8
+```
+
