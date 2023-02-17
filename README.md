@@ -4,6 +4,15 @@ Media Server to push stream content or live video feeds to a media player on a h
 # Script OS
 Script was made for use on Ubuntu 20.04 and up
 
+# Install Ansible (Ubuntu)
+```
+sudo apt install ansible && cd ansible
+```
+```
+sudo nano video.yml
+```
+Paste the contents and save.
+
 # Assign an SSL Cert to the Node Media Server
 ```
 sudo snap install --classic certbot
