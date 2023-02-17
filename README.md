@@ -6,7 +6,11 @@ Script was made for use on Ubuntu 20.04 and up
 
 # Install Ansible (Ubuntu)
 ```
-sudo apt install ansible && cd ansible
+sudo apt install ansible
+```
+# Create Ansible Script
+```
+sudo mkdir ansible && cd ansible
 ```
 ```
 sudo nano launch.yml
